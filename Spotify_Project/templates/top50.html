@@ -1,0 +1,318 @@
+<doctype html>
+  <html lang="en">
+    <head>
+      <link rel="preconnect" href="https://fonts.gstatic.com" />
+      <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative&family=Cinzel:wght@400;700;900&family=Poiret+One&display=swap" />
+      <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Julius Sans One" />
+      <meta charset="utf-8" />
+      <title>SongTyr</title>
+      <style>
+        body {
+          background-image: linear-gradient(-225deg, #304352 0%, #000000 51%, #040404 100%);
+          font-family: "Kosugi";
+        }
+        .songTyrWelcome {
+          width: 100%;
+          text-align: center;
+        }
+        .songTyrWelcomeMsg{
+          width: 100%;
+          text-align: center;
+        }
+        .nav1 {
+          position: absolute;
+          left: 0;
+          top: 15px;
+          /* width: 50%; */
+          display: flex;
+          justify-content: center;
+        }
+        .nav2 {
+          position: absolute;
+          right: 0;
+          top: 15px;
+          /* width: 50%; */
+          display: flex;
+          justify-content: center;
+        }
+        button {
+          background-color: #111;
+          position: relative;
+          text-align: center;
+          padding: 5px 15px;
+          font-size: 15px;
+          color: #00ff81;
+          font-weight: 400;
+          border: 2px solid #00ff81;
+          text-transform: uppercase;
+          cursor: pointer;
+          border-radius: 20px;
+          margin: 0 15px;
+        }
+        button:hover {
+          box-shadow: 0 5px 50px 0 #00ff81, 0 5px 50px 0 #00ff81, 0 5px 50px 0 #00ff81 inset, 0 5px 50px 0 black;
+          text-shadow: 0 0 2px black, 0 0 2px black;
+        }
+        .songTyrWelcome {
+          background-image: url("https://drive.google.com/uc?export=view&id=1ngP7bWr5c6kG22dH9EUH0IWHS2e2pGIY");
+          height: 250px;
+          background-repeat: no-repeat, repeat; /* I kind of like the repeated one if you wanna delete this line and the next*/
+          background-position: center;
+        }
+        h1 {
+          color: #00ff81;
+          font-family: "Cinzel", serif;
+          font-weight: 900; /* or 700 or 400 */
+          letter-spacing: 3px;
+          font-size: 65px;
+        }
+        h2 {
+          color: #00ff81;
+          font-family: "Cinzel Decorative", cursive;
+          font-size: 30px;
+          font-weight: 900; /* or 700 or 400 */
+        }
+        
+        .tierTable {
+          width: 50%;
+          margin: 50px auto 10px;
+        }
+        table {
+          border-collapse: separate !important;
+          border-collapse: collapse;
+          box-shadow: 0 5px 50px 0 black inset, 0 5px 50px 0 #00ff81, 0 1px 50px 0 black inset, 0 5px 50px 0 black;
+          font-family: "Julius Sans One";
+          margin-top: 25px;
+          width: 100%;
+        }
+
+        td,
+        th {
+          background-color: #d8ffec;
+          /* border: 1px solid #111; */
+          padding: 15px;
+        }
+
+        tr:nth-child(even) > td {
+          background-color: #989898 !important;
+        }
+        .hidden {
+          display: none;
+        }
+        .footer h2 {
+          text-align: center;
+        }
+      </style>
+      </head>
+        <body>
+      
+      <div class="songTyrWelcome">
+        <h1>SongTyr</h1>
+      </div>
+      <div class="songTyrWelcomeMsg">
+        <h2>Welcome to SongTyr! Feel free to browse the page and explore your very own, personalized, tier-rankings based on the music you listen to on Spotify. Thank you for using our application!</h2>
+      </div>
+  
+      <nav class="nav1">
+        <container class="navBtnHolder"><button id="navBtnS">S-Tier</button></container>
+        <container class="navBtnHolder"><button id="navBtnA">A-Tier</button></container>
+        <container class="navBtnHolder"><button id="navBtnB">B-Tier</button></container>
+      </nav>
+      <nav class="nav2">
+        <container class="navBtnHolder"><button id="navBtnC">C-Tier</button></container>
+        <container class="navBtnHolder"><button id="navBtnD">D-Tier</button></container>
+        <container class="navBtnHolder"><button id="navBtnF">F-Tier</button></container>
+      </nav>
+      <div class="tierTable hidden" data-letter="S">
+        <h2>S-Tier</h2>
+        <table>
+          <tr>
+            <th>Song</th>
+            <th>Artist</th>
+          </tr>
+          {% for song in sTier %}
+            <tr>
+            {% for elem in song %}
+              <td>{{elem}}</td>
+            {% endfor %}
+            </tr>
+          {% endfor %}
+        </table>
+      </div>
+      <div class="tierTable hidden" data-letter="A">
+        <h2>A-Tier</h2>
+        <table >
+          <tr>
+            <th>Song</th>
+            <th>Artist</th>
+          </tr>
+          {% for song in aTier %}
+            <tr>
+            {% for elem in song %}
+              <td>{{elem}}</td>
+            {% endfor %}
+            </tr>
+          {% endfor %}
+        </table>
+      </div>
+      <div class="tierTable hidden" data-letter="B">
+        <h2>B-Tier</h2>
+        <table>
+          <tr>
+            <th>Song</th>
+            <th>Artist</th>
+          </tr>
+          {% for song in bTier %}
+            <tr>
+            {% for elem in song %}
+              <td>{{elem}}</td>
+            {% endfor %}
+            </tr>
+          {% endfor %}
+        </table>
+      </div>
+      <div class="tierTable hidden" data-letter="C">
+        <h2>C-Tier</h2>
+        <table>
+          <tr>
+            <th>Song</th>
+            <th>Artist</th>
+          </tr>
+          {% for song in cTier %}
+            <tr>
+            {% for elem in song %}
+              <td>{{elem}}</td>
+            {% endfor %}
+            </tr>
+          {% endfor %}
+        </table>
+      </div>
+      <div class="tierTable hidden" data-letter="D">
+        <h2>D-Tier</h2>
+        <table>
+          <tr>
+            <th>Song</th>
+            <th>Artist</th>
+          </tr>
+          {% for song in dTier %}
+            <tr>
+            {% for elem in song %}
+              <td>{{elem}}</td>
+            {% endfor %}
+            </tr>
+          {% endfor %}
+        </table>
+      </div>
+      <div class="tierTable hidden" data-letter="F">
+        <h2>F-Tier</h2>
+        <table>
+          <tr>
+            <th>Song</th>
+            <th>Artist</th>
+          </tr>
+          {% for song in fTier %}
+            <tr>
+            {% for elem in song %}
+              <td>{{elem}}</td>
+            {% endfor %}
+            </tr>
+          {% endfor %}
+        </table>
+      </div>
+
+      <div class="footer">
+        <h2>SongTyr</h2>
+      </div>
+      <script>
+
+      // grab each inidividual table
+
+      var sTierBtn = document.getElementById("navBtnS");
+
+      var aTierBtn = document.getElementById("navBtnA");
+
+      var bTierBtn = document.getElementById("navBtnB");
+
+      var cTierBtn = document.getElementById("navBtnC");
+
+      var dTierBtn = document.getElementById("navBtnD");
+
+      var fTierBtn = document.getElementById("navBtnF");
+
+      // all tables in 1 selector
+
+      var allTables = document.getElementsByClassName("tierTable");
+
+      // create list of btns to add eventListener once
+
+      var allBtns = [sTierBtn, aTierBtn, bTierBtn, cTierBtn, dTierBtn, fTierBtn];
+
+
+      function hideAllTables() {
+
+      // iterate over the HTML Collection of Nodes
+
+      for (table of allTables) {
+
+      // Don't follow the link
+
+      event.preventDefault();
+
+      // remove ALL "hidden" strings that might be in the class list
+
+      table.classList.remove("hidden");
+
+      // add 1 hidden to all tables; this makes sure we don't
+
+      // accidentally have 'hidden' in the class list more than once
+
+      table.classList.add("hidden");
+
+      }
+
+      }
+
+      allBtns.forEach(function (btn) {
+
+      btn.addEventListener(
+
+      "click",
+
+      function (event) {
+
+      // Don't do any unexpected things with the event
+
+      event.preventDefault();
+
+      // make sure all tables are still hidden
+
+      hideAllTables();
+
+      var letterAttribute = btn.getAttribute("id");
+
+      var tableLetter = letterAttribute.slice(-1);
+
+      console.log('[data-letter="' + tableLetter + '"]');
+
+      var table = document.querySelector('[data-letter="' +
+      tableLetter + '"]');
+
+      // only unhide the 1 table we clicked
+
+      table.classList.remove("hidden");
+
+      },
+
+      false,
+
+      );
+
+      });
+
+      </script>
+
+    </body>
+  </html>
+</doctype>
